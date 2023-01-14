@@ -1,0 +1,157 @@
+@import "../../../styles/App";
+.movie__envelope {
+  width: 1368px;
+  height: 600px;
+
+  margin-left: 34px;
+  margin-right: 34px;
+  margin-bottom: 60px;
+  border: 2px solid blue;
+  margin-top: 70px;
+}
+.movie__info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.headers {
+  margin-left: 98px;
+  margin-right: 98px;
+  display: flex;
+  justify-content: space-between;
+  .header__title {
+    width: 270px;
+    height: 47px;
+    margin-top: -10px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 47px;
+    color: color(black);
+  }
+  .title__box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 24px;
+    padding: 0 !important;
+  }
+  .header__p {
+    width: 79px;
+    height: 24px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: color(cardinal);
+    white-space: nowrap;
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+  .img {
+    margin-top: -5px;
+  }
+}
+
+.card__Container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 80px;
+  width: 1240px;
+  height: 513px;
+  margin-left: 85px !important;
+  margin-right: 85px;
+  top: 761px;
+}
+
+.moviecard_box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12px;
+  width: 250px !important;
+  height: 490px !important;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.movie__img {
+  width: 250px !important;
+  height: 370px !important;
+}
+.year {
+  width: 114px;
+  height: 16px;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: color(cadetGrey);
+  margin-top: -3px;
+}
+.movie__title {
+  width: 250px;
+  height: 23px;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: color(gray900);
+  margin-top: -10px;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  font-family: "DM Sans";
+  justify-content: space-between;
+  padding: 0px;
+  gap: 32px;
+  width: 250px;
+  height: 17px;
+  margin-top: -10px;
+}
+.rating__figure {
+  width: 56px;
+  height: 12px;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  color: color(gray900);
+  margin-left: -15px;
+  margin-right: 20px;
+}
+.tomato_img {
+  margin-left: 30px !important;
+}
+.tomatoes {
+  width: 23px;
+  height: 12px;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  color: color(gray900);
+  margin-left: -15px;
+}
+.genre {
+  width: 148px;
+  height: 16px;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: color(cadetGrey);
+  margin-top: -2px;
+}

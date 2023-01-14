@@ -1,0 +1,206 @@
+@import "../../../styles/App";
+.header__container {
+  background-image: url("../../../assets/images/Poster.svg");
+  // position: absolute;
+  width: 1440px;
+  height: 600px;
+  left: 0px;
+  top: 0px;
+}
+.navbar {
+  position: absolute;
+  width: 1440px;
+  height: 80px;
+  left: 0px;
+  top: 0px;
+}
+
+.logo__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 24px;
+  position: absolute;
+  width: 143px;
+  height: 50px;
+  left: 95px;
+  top: 15px;
+  p {
+    width: 69px;
+    height: 24px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    color: color(white);
+  }
+}
+.search__bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  gap: 10px;
+  position: absolute;
+  width: 525px;
+  height: 36px;
+  left: 493px;
+  top: 22px;
+  border: 2px solid color(lightSilver);
+  border-radius: 6px;
+  input {
+    outline: none !important;
+    border: none !important;
+    width: 211px;
+    height: 24px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    background: none;
+    width: 100%;
+  }
+}
+::placeholder {
+  color: color(white) !important;
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 27px;
+  position: absolute;
+  width: 166px;
+  height: 36px;
+  left: 1216px;
+  top: 22px;
+  p {
+    width: 103px;
+    height: 24px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    white-space: nowrap;
+    color: color(white);
+  }
+}
+.red__logo {
+  display: flex;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  left: 130px;
+  border-radius: 100px;
+  top: 0px;
+  background: color(cardinal);
+  align-items: center;
+  justify-content: center;
+}
+.description__box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  position: absolute;
+  width: 404px;
+  height: 285px;
+  left: 98px;
+  top: 158px;
+  .movie__name {
+    width: 404px;
+    height: 112px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    color: color(white);
+  }
+  .rating {
+    width: 184px;
+    height: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: space-between;
+  }
+  .rate__value {
+    width: 56px;
+    height: 12px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    margin-left: -15px;
+    margin-right: 20px;
+    color: color(white);
+  }
+  .rotten__tomatoes {
+    width: 23px;
+    height: 12px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    color: color(white);
+    margin-left: -15px;
+  }
+  .description {
+    width: 302px;
+    height: 72px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: color(white);
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  .trailer__btn {
+    .title {
+      width: 109px;
+      height: 24px;
+      font-family: "DM Sans";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 24px;
+      text-transform: uppercase;
+      color: color(white);
+    }
+  }
+}
+.pagination__box {
+  position: absolute;
+  width: 36px;
+  height: 110px;
+  left: 1380px;
+  top: 245px;
+  p {
+    color: color(white);
+  }
+}
+.trailer {
+  .btn__title {
+    width: 109px;
+    height: 24px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: color(white);
+    text-transform: uppercase;
+  }
+}

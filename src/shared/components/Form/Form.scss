@@ -1,0 +1,98 @@
+@import "../../../styles/App";
+.form {
+  width: 394px;
+  .form-container-heading {
+    width: 394px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title {
+      width: 112px;
+      height: 23px;
+      font-family: "Bauziet";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 23px;
+      text-align: center;
+      font-feature-settings: "liga" off, "calt" off, "kern" off;
+      //   border: 2px solid rgb(162, 0, 255);
+      margin-top: 0px !important;
+      margin-bottom: 0 !important;
+    }
+    .description {
+      width: 394px;
+      margin-top: 0px !important;
+      height: 19px;
+      font-family: "Work Sans";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      text-align: center;
+      font-feature-settings: "liga" off, "calt" off, "kern" off;
+    }
+  }
+  .form-container__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    margin-top: 10px;
+  }
+  .form-container__contentInput {
+    width: 394px;
+  }
+  .form-container__contentInput > input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 12px;
+    width: 93%;
+    height: 51px;
+    border: 1px solid rgba(76, 78, 100, 0.22);
+    border-radius: 8px;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    outline: none !important;
+  }
+}
+::placeholder {
+  width: 365px;
+  height: 19px;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  font-feature-settings: "liga" off, "calt" off, "kern" off;
+  color: rgba(76, 78, 100, 0.38);
+}
+
+.password-eye-wrap {
+  width: 397px;
+  display: flex;
+  flex-direction: row;
+  input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 12px;
+    width: 93%;
+    height: 51px;
+    border: 1px solid rgba(76, 78, 100, 0.22);
+    border-radius: 8px;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    outline: none !important;
+  }
+
+  img {
+    margin-left: -2rem;
+  }
+}

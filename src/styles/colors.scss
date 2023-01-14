@@ -1,0 +1,15 @@
+$colors: (
+  black: #000000,
+  white: #ffffff,
+  venetianRed: #b91c1c,
+  sonicSilver: #747474,
+  cardinal: #be123c,
+  gray900: #111827,
+  gray500: #6b7280,
+  lightSilver: #d1d5db,
+  cadetGrey:#9ca3af
+);
+
+@function color($color) {
+  @return map-get($map: $colors, $key: $color);
+}

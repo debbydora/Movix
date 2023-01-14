@@ -1,0 +1,37 @@
+@import "../../styles/App";
+.body {
+  background-color: color(white);
+  .headers {
+    margin-left: 98px;
+    margin-right: 98px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header__title {
+      width: 270px;
+      height: 47px;
+      font-family: "DM Sans";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 47px;
+      color: color(black);
+    }
+    .title__box {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .header__p {
+      width: 79px;
+      height: 24px;
+      font-family: "DM Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      color: color(cardinal);
+      white-space: nowrap;
+    }
+  }
+}

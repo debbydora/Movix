@@ -1,0 +1,59 @@
+@import "../../../styles/App";
+%button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 0px;
+  height: 51px;
+  box-shadow: 0px 4px 8px -4px rgba(76, 78, 100, 0.42);
+  border-radius: 8px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  cursor: pointer;
+}
+.button {
+  &--black {
+    @extend %button;
+    background-color: color(black);
+    width: 100%;
+    color: color(white);
+  }
+  &--red {
+    @extend %button;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 16px;
+    gap: 8px;
+    width: 169px;
+    height: 36px;
+    background: color(cardinal);
+    border-radius: 6px;
+    border: none !important;
+    white-space: nowrap;
+    outline: none !important;
+  }
+}
+.btn {
+  flex-direction: column;
+  width: 394px;
+  margin-top: 20px;
+}
+.btn__title {
+  width: 76px;
+  height: 26px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 26px;
+  letter-spacing: 0.46px;
+  text-transform: uppercase;
+}
+
+.icon-img {
+  margin-left: -15px;
+}
