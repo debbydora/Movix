@@ -1,0 +1,13 @@
+export const ADD_USER = "ADD_USER";
+export const ADD_USER_SUCCESS = "ADD_USER_SUCCESS";
+export const ADD_USER_FAILURE = "ADD_USER_FAILURE";
+
+export const LOGIN_USER = "LOGIN_USER";
+export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
+export const LOGIN_USER_FAILURE = "LOGIN_USER_FAILURE";
+
+export const LOGOUT_USER = "LOGIN_USER";
+export const LOGOUT_USER_SUCCESS = "LOGIN_USER_SUCCESS";
+export const LOGOUT_USER_FAILURE = "LOGIN_USER_FAILURE";
+
+export const SET_USER = "SET_USER";

@@ -52,6 +52,9 @@ function Input({
   allowShowPassword,
 }: InputProps) {
   const [showPassword, setShowPassword] = React.useState(false);
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+  };
   const inputProps = {
     name,
     value,
@@ -74,8 +77,10 @@ function Input({
             src={require("../../../assets/images/Vector.svg").default}
             alt="show password"
             className="pointer"
-            onMouseDown={() => setShowPassword(true)}
-            onMouseUp={() => setShowPassword(false)}
+            // onClick={togglePassword}
+            onMouseOver={togglePassword}
+            onMouseLeave={togglePassword}
+            // onMouseUp={() => setShowPassword(false)}
           />
         </div>
       ) : (

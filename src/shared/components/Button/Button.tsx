@@ -7,6 +7,7 @@ export interface ButtonProps {
   title?: string;
   loading?: boolean;
   icon?: string;
+  disabled?: boolean;
   onClick?: (e: any) => void;
   loadingComponent?: React.ReactNode;
 }
@@ -20,6 +21,7 @@ const Button = (props: ButtonProps) => {
         onClick={(e) => {
           props.onClick && props.onClick(e);
         }}
+        disabled={props.disabled}
       >
         {props.icon && (
           <img className="icon-img" src={props.icon} alt="icon-button" />
