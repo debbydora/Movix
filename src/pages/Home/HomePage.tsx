@@ -10,18 +10,28 @@ import HomePageProvider from "./HomePageProvider";
 
 type PageProps = {
   currentUser: any;
+  movies: [];
+  genre: [];
+  newArrivals: [];
+  cast: [];
 };
 const HomePage = () => {
   return (
     <HomePageProvider
-      render={({ currentUser }: PageProps) => {
+      render={({
+        currentUser,
+        movies,
+        genre,
+        newArrivals,
+        cast,
+      }: PageProps) => {
         return (
           <div>
             <Header fullName={currentUser.displayName} />
-            <MovieCards />
-            <NewArrivalsCard />
+            <MovieCards movies={movies} genre={genre} />
+            <NewArrivalsCard movies={newArrivals} genre={genre} />
             <VideoCards />
-            <CastCards />
+            <CastCards Featuredcasts={cast} />
             <Footer />
           </div>
         );

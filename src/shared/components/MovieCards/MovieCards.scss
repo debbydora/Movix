@@ -2,11 +2,10 @@
 .movie__envelope {
   width: 1368px;
   height: 600px;
-
   margin-left: 34px;
   margin-right: 34px;
   margin-bottom: 60px;
-  border: 2px solid blue;
+  // border: 2px solid blue;
   margin-top: 70px;
 }
 .movie__info {
@@ -60,12 +59,14 @@
   flex-direction: row;
   align-items: flex-start;
   padding: 0px;
-  gap: 80px;
   width: 1240px;
   height: 513px;
   margin-left: 85px !important;
   margin-right: 85px;
   top: 761px;
+  gap: 54px !important;
+  // gap: 80px;
+  // border: 2px solid red;
 }
 
 .moviecard_box {

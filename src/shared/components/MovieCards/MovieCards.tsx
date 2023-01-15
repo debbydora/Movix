@@ -1,14 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { handleScrollBar } from "../../utils";
 import "./MovieCards.scss";
 export interface MovieCardProps {
-  image?: string;
-  title?: string;
-  rating?: string;
-  ProductionYear?: string;
-  rottenTomatoes?: string;
-  genre?: string;
+  movies: Array<any>;
+  genre: Array<any>;
 }
 const MovieCards = (props: MovieCardProps) => {
+  let moviesArray = props.movies;
+  const [moviesToDisplay, setMoviesToDisplay] = useState([]);
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(4);
+  useEffect(() => {
+    setMoviesToDisplay(handleScrollBar(moviesArray, startIndex, endIndex));
+  }, [startIndex, endIndex, moviesArray]);
+
+  const handlePrev = (e: any) => {
+    e.preventDefault();
+    if (startIndex === 0) {
+      setStartIndex(0);
+      setEndIndex(4);
+    } else {
+      setStartIndex(startIndex - 4);
+      setEndIndex(endIndex - 4);
+    }
+    setMoviesToDisplay(handleScrollBar(moviesArray, startIndex, endIndex));
+  };
+
+  const handleNext = () => {
+    if (endIndex >= moviesArray.length) {
+      setStartIndex(0);
+      setEndIndex(4);
+    } else {
+      setStartIndex(endIndex);
+      setEndIndex(endIndex + 4);
+    }
+    setMoviesToDisplay(handleScrollBar(moviesArray, startIndex, endIndex));
+  };
+
+  const displayGenre = (genreIds: []) => {
+    var genreNames = " ";
+    genreIds?.forEach((element: number) => {
+      genreNames =
+        genreNames +
+        props.genre.find((jerry) => jerry.id === element)?.name +
+        ", ";
+    });
+    return genreNames;
+  };
+
   return (
     <div className="movie__envelope">
       <div className="headers">
@@ -26,42 +65,39 @@ const MovieCards = (props: MovieCardProps) => {
         <img
           src={require("../../../assets/images/chevronleft.svg").default}
           alt="chevron left"
+          onClick={handlePrev}
         />
         <div className="card__Container">
-          <div className="moviecard_box">
-            {/* src should be the image from props */}
-            <img
-              src={require("../../../assets/images/Poster.svg").default}
-              alt="movie img"
-              className="movie__img"
-            />
-            {/* year from props */}
-            <p className="year">USA 2002</p>
-            {/* title from props */}
-            <p className="movie__title">Stranger things</p>
-            {/* rating from props */}
-            <div className="rating">
+          {moviesToDisplay?.map((m: { [key: string]: any }) => (
+            <div className="moviecard_box" key={m.id}>
               <img
-                src={require("../../../assets/images/imdb.svg").default}
-                alt="rating logo"
+                src={`https://image.tmdb.org/t/p/original${m.poster_path}`}
+                alt="movie img"
+                className="movie__img"
               />
-              {/* rating over 100 */}
-              <p className="rating__figure">99/100</p>
-              {/* change  rotten value*/}
-              <img
-                src={require("../../../assets/images/tomatoes.svg").default}
-                alt="rotten tomatoes"
-                className="tomato_img"
-              />
-              <p className="tomatoes">97%</p>
+              <p className="year">{new Date(m.release_date).getFullYear()}</p>
+              <p className="movie__title">{m.title}</p>
+              <div className="rating">
+                <img
+                  src={require("../../../assets/images/imdb.svg").default}
+                  alt="rating logo"
+                />
+                <p className="rating__figure">{m.vote_average * 10}/100</p>
+                <img
+                  src={require("../../../assets/images/tomatoes.svg").default}
+                  alt="rotten tomatoes"
+                  className="tomato_img"
+                />
+                <p className="tomatoes">{(m.vote_average / 10) * 100}%</p>
+              </div>
+              <p className="genre">{displayGenre(m.genre_ids)}</p>
             </div>
-            {/* genre from props */}
-            <p className="genre">Action, adventure, horror</p>
-          </div>
+          ))}
         </div>
         <img
           src={require("../../../assets/images/chevronright.svg").default}
           alt="chevron right"
+          onClick={handleNext}
         />
       </div>
     </div>

@@ -3,12 +3,16 @@
   height: 496px;
   margin-left: 34px;
   margin-right: 34px;
-  border: 2px solid greenyellow;
+  // border: 2px solid greenyellow;
 }
 .Cast__info {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-items: center;
+  justify-content: center;
+  // gap: 20px;
+  // border: 2px solid black;
 }
 .headers {
   margin-left: 98px;
@@ -54,14 +58,15 @@
   flex-direction: row;
   align-items: flex-start;
   padding: 0px;
-  gap: 80px;
+  gap: 54px;
   width: 1240px;
   height: 405px;
   margin-top: -18px;
+  // border: 2px solid red;
   //   margin-left: 98px;
   //   margin-right: 98px;
-  margin-left: 85px !important;
-  margin-right: 85px;
+  margin-left: 80px;
+  margin-right: 80px;
 }
 
 .cast__box {
