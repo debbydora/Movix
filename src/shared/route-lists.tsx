@@ -8,7 +8,7 @@ export interface RouteType {
 }
 const RouteLists: RouteType[] = [
   {
-    path: "/signup",
+    path: "signup",
     element: <SignupPage />,
   },
   {
@@ -17,7 +17,7 @@ const RouteLists: RouteType[] = [
     element: <HomePage />,
   },
   {
-    path: "/login",
+    path: "login",
     element: <LoginPage />,
   },
 ];
