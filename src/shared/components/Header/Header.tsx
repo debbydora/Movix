@@ -45,7 +45,7 @@ const Header = (props: HeaderProps) => {
           />
         </div>
         <div className="menu">
-          <p>Hi, {props?.fullName}</p>
+          {props?.fullName ? <p>Hi, {props?.fullName}</p> : ""}
           <div className="red__logo">
             <img
               src={require("../../../assets/images/dash.svg").default}

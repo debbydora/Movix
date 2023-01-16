@@ -21,7 +21,7 @@ const SignupProvider = (props: SignupProviderProps) => {
 
   useEffect(() => {
     if (currentUser) {
-      navigate("/home");
+      navigate("/");
     }
   }, [currentUser, navigate]);
 
@@ -43,8 +43,12 @@ const SignupProvider = (props: SignupProviderProps) => {
       return toast.error("please enter your details");
     }
     dispatch(registerationOfUser({ email, password, fullName }));
-    toast.error(error);
-    console.log(error);
+    if (error) {
+      toast.error(error);
+    } else {
+      toast.success("Registeration successful");
+    }
+
     setEmail("");
     setFullName("");
     setPassword("");

@@ -87,10 +87,13 @@ export const registerationOfUser = ({
 };
 
 export const loginUserInitiation = ({ email, password }: loginDetailType) => {
+  console.log("got here");
   return (dispatch: Dispatch) => {
     dispatch(loginUser());
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
+        // console.log(auth.currentUser?.displayName, "current");
+        // console.log("testing user", user);
         dispatch(loginUserSuccess(user));
       })
       .catch((error) => {

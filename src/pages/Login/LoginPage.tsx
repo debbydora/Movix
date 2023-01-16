@@ -24,8 +24,6 @@ const LoginPage = () => {
           handleonchange,
           handleSubmit,
         }: PageProps) => {
-          console.log(email);
-          console.log(password);
           return (
             <Card className="login__card">
               <Form

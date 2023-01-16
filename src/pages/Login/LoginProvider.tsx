@@ -18,8 +18,7 @@ const LoginProvider = (props: LoginProviderProps) => {
 
   useEffect(() => {
     if (currentUser) {
-      // navigate("/home");
-      console.log("trig");
+      navigate("/");
     }
   }, [currentUser, navigate]);
 

@@ -91,22 +91,6 @@ const HomePageProvider = (props: HomepageProviderProps) => {
       .catch((error: any) => console.log(error));
   };
 
-  // const searchMovie = async (e: any) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await fetch(
-  //       `https://api.themoviedb.org/3/search/movie?api_key=19c570566ad687496fa002fda7fa2934&query=${query}`
-  //     );
-  //     const data = await response.json();
-  //     setNewArrivals(data);
-  //     movies.push(data);
-  //     //
-  //     // set the moviearray to the data.results;
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
-
   const onQueryChange = (e: any) => {
     setQuery(e.target.value);
   };
