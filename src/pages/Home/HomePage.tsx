@@ -35,7 +35,7 @@ const HomePage = () => {
         return (
           <div>
             <Header
-              fullName={currentUser.displayName}
+              fullName={currentUser?.displayName}
               imageIndex={imageIndex}
               getRandomImgs={getRandomImgs}
               query={query}
