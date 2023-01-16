@@ -8,12 +8,13 @@ export interface RouteType {
 }
 const RouteLists: RouteType[] = [
   {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
     path: "/signup",
     element: <SignupPage />,
+  },
+  {
+    path: "/",
+    // element: <ProtectedRoute children={<HomePage />} />,
+    element: <HomePage />,
   },
   {
     path: "/login",

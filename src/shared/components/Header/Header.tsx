@@ -1,16 +1,28 @@
-import React from "react";
 import Button from "../Button/Button";
 import "./Header.scss";
+
 export interface HeaderProps {
   fullName?: string;
   movieName?: string;
   description?: string;
   onClick?: (e: any) => void;
+  imageIndex: number;
+  getRandomImgs: Array<any>;
+  query: string;
+  onQueryChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Header = (props: HeaderProps) => {
+  let backgroundImg =
+    "https://image.tmdb.org/t/p/original" +
+    props.getRandomImgs[props.imageIndex]?.poster_path;
   return (
-    <div className="header__container">
+    <div
+      className="header__container"
+      style={{
+        backgroundImage: "url(" + backgroundImg + ")",
+      }}
+    >
       <div className="navbar">
         <div className="logo__container">
           <img
@@ -20,7 +32,13 @@ const Header = (props: HeaderProps) => {
           <p>Movix</p>
         </div>
         <div className="search__bar">
-          <input type="search" placeholder="what do you want to watch" />
+          <input
+            type="search"
+            placeholder="what do you want to watch"
+            name="query"
+            value={props.query}
+            onChange={props.onQueryChange}
+          />
           <img
             src={require("../../../assets/images/search.svg").default}
             alt="search icon"
@@ -38,28 +56,31 @@ const Header = (props: HeaderProps) => {
       </div>
       <div className="description__box">
         <p className="movie__name">
-          {/* {props.movieName} */}
-          John wick: parabellum
+          {props.getRandomImgs[props.imageIndex]?.title}
         </p>
         <div className="rating">
-          {/* change the image and rate value */}
           <img
             src={require("../../../assets/images/imdb.svg").default}
             alt="imdb"
           />
-          <p className="rate__value">90/100</p>
-          {/* change  rotten value*/}
+          <p className="rate__value">
+            {props.getRandomImgs[props.imageIndex]?.vote_average * 10}/100
+          </p>
           <img
             src={require("../../../assets/images/tomatoes.svg").default}
             alt="rotten tomatoes"
             className="tomato_img"
           />
-          <p className="rotten__tomatoes">97%</p>
+          <p className="rotten__tomatoes">
+            {(
+              (props.getRandomImgs[props.imageIndex]?.vote_average / 10) *
+              100
+            ).toFixed(0)}
+            %
+          </p>
         </div>
-        {/* <p className="description">{props.description}</p> */}
         <p className="description">
-          Defines a grid template by referencing the names of the grid areas
-          which are specified with the grid-area property. Repeating the name.
+          {props.getRandomImgs[props.imageIndex]?.overview.substring(0, 200)}...
         </p>
         <Button
           type={"button"}

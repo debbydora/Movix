@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Button from "../../shared/components/Button/Button";
 import Card from "../../shared/components/Card/Card";
 import Form from "../../shared/components/Form/Form";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Login.scss";
 import LoginProvider from "./LoginProvider";
 
@@ -50,11 +52,12 @@ const LoginPage = () => {
               </Form>
               <div className="btn">
                 <Button
-                  type={"button"}
+                  type={"submit"}
                   title={"Login"}
                   className="button--black"
                   onClick={handleSubmit}
                 />
+                <ToastContainer />
               </div>
               <div className="footer__message">
                 <p>Don't have an account?</p>

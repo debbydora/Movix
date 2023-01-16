@@ -5,6 +5,8 @@ import Form from "../../shared/components/Form/Form";
 import "./Signup.scss";
 import SignupProvider from "./SignupProvider";
 import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 type PageProps = {
   email: string;
   password: string;
@@ -64,6 +66,7 @@ const SignupPage = () => {
                   onClick={handleSubmit}
                   disabled={loading}
                 />
+                <ToastContainer />
               </div>
               <div className="footer__message">
                 <p>Already have an account?</p>

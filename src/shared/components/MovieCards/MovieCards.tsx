@@ -4,15 +4,26 @@ import "./MovieCards.scss";
 export interface MovieCardProps {
   movies: Array<any>;
   genre: Array<any>;
+  query: string;
 }
 const MovieCards = (props: MovieCardProps) => {
   let moviesArray = props.movies;
+  let queryString = props.query;
   const [moviesToDisplay, setMoviesToDisplay] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(4);
+
   useEffect(() => {
-    setMoviesToDisplay(handleScrollBar(moviesArray, startIndex, endIndex));
-  }, [startIndex, endIndex, moviesArray]);
+    if (queryString !== "") {
+      let data: any = moviesArray.filter((movie: any) => {
+        return movie.title.toLowerCase().includes(props.query.toLowerCase());
+      });
+      setMoviesToDisplay(handleScrollBar(data, startIndex, endIndex));
+    } else {
+      setMoviesToDisplay(handleScrollBar(moviesArray, startIndex, endIndex));
+    }
+    // eslint-disable-next-line
+  }, [startIndex, endIndex, moviesArray, queryString]);
 
   const handlePrev = (e: any) => {
     e.preventDefault();
@@ -71,9 +82,18 @@ const MovieCards = (props: MovieCardProps) => {
           {moviesToDisplay?.map((m: { [key: string]: any }) => (
             <div className="moviecard_box" key={m.id}>
               <img
+                alt="elips"
+                src={require("../../../assets/images/Ellipse 3.svg").default}
+              />
+              <img
+                alt="elips"
+                src={require("../../../assets/images/Ellipse 3.svg").default}
+              />
+
+              <img
                 src={`https://image.tmdb.org/t/p/original${m.poster_path}`}
                 alt="movie img"
-                className="movie__img"
+                className="movie__img2"
               />
               <p className="year">{new Date(m.release_date).getFullYear()}</p>
               <p className="movie__title">{m.title}</p>
@@ -88,9 +108,13 @@ const MovieCards = (props: MovieCardProps) => {
                   alt="rotten tomatoes"
                   className="tomato_img"
                 />
-                <p className="tomatoes">{(m.vote_average / 10) * 100}%</p>
+                <p className="tomatoes">
+                  {((m.vote_average / 10) * 100).toFixed(0)}%
+                </p>
               </div>
-              <p className="genre">{displayGenre(m.genre_ids)}</p>
+              <p className="genre">
+                {displayGenre(m.genre_ids).substring(0, 100)}...
+              </p>
             </div>
           ))}
         </div>

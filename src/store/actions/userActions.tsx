@@ -81,7 +81,6 @@ export const registerationOfUser = ({
       })
       .catch((error) => {
         const errorMessage = error.message.split(":");
-        console.log(errorMessage[1], error.message, "error");
         dispatch(addUserFailure(errorMessage[1]));
       });
   };
@@ -96,7 +95,6 @@ export const loginUserInitiation = ({ email, password }: loginDetailType) => {
       })
       .catch((error) => {
         const errorMessage = error.message.split(":");
-        console.log(errorMessage[1], error.message, "error");
         dispatch(loginUserFailure(errorMessage[1]));
       });
   };
@@ -109,7 +107,6 @@ export const handleUserLogout = () => {
       .then(() => dispatch(logoutUserSuccess()))
       .catch((error) => {
         const errorMessage = error.message.split(":");
-        console.log(errorMessage[1], error.message, "error");
         dispatch(logoutUserFailure(errorMessage[1]));
       });
   };

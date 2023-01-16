@@ -18,6 +18,9 @@ const HomePageProvider = (props: HomepageProviderProps) => {
   const [genre, setGenre] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
   const [cast, setCast] = useState([]);
+  const [topRated, setTopRated] = useState([]);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [query, setQuery] = useState("");
   useEffect(() => {
     onAuthStateChanged(auth, (authUser) => {
       if (authUser) {
@@ -30,6 +33,8 @@ const HomePageProvider = (props: HomepageProviderProps) => {
     fetchGenres();
     fetchNewArrivals();
     getFeaturedCasts();
+    getTopRatedMovies();
+    changeImage();
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -46,7 +51,7 @@ const HomePageProvider = (props: HomepageProviderProps) => {
   const fetchGenres = () => {
     axios
       .get(
-        "https://api.themoviedb.org/3/genre/movie/list?api_key=6e6124f444afd2e146d6bf5ed76e8909"
+        "https://api.themoviedb.org/3/genre/movie/list?api_key=19c570566ad687496fa002fda7fa2934"
       )
       .then((response) => {
         setGenre(response.data.genres);
@@ -57,7 +62,7 @@ const HomePageProvider = (props: HomepageProviderProps) => {
   const fetchNewArrivals = () => {
     axios
       .get(
-        "https://api.themoviedb.org/3/movie/upcoming?api_key=6e6124f444afd2e146d6bf5ed76e8909"
+        "https://api.themoviedb.org/3/movie/upcoming?api_key=19c570566ad687496fa002fda7fa2934"
       )
       .then((response) => {
         setNewArrivals(response.data.results);
@@ -68,20 +73,58 @@ const HomePageProvider = (props: HomepageProviderProps) => {
   const getFeaturedCasts = () => {
     axios
       .get(
-        "https://api.themoviedb.org/3/person/popular?api_key=6e6124f444afd2e146d6bf5ed76e8909"
+        "https://api.themoviedb.org/3/person/popular?api_key=19c570566ad687496fa002fda7fa2934"
       )
       .then((response) => {
         setCast(response.data.results);
       })
       .catch((error: any) => console.log(error));
   };
-  console.log(cast);
+  const getTopRatedMovies = () => {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=6e6124f444afd2e146d6bf5ed76e8909"
+      )
+      .then((response) => {
+        setTopRated(response.data.results);
+      })
+      .catch((error: any) => console.log(error));
+  };
+
+  // const searchMovie = async (e: any) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await fetch(
+  //       `https://api.themoviedb.org/3/search/movie?api_key=19c570566ad687496fa002fda7fa2934&query=${query}`
+  //     );
+  //     const data = await response.json();
+  //     setNewArrivals(data);
+  //     movies.push(data);
+  //     //
+  //     // set the moviearray to the data.results;
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
+
+  const onQueryChange = (e: any) => {
+    setQuery(e.target.value);
+  };
+  const getRandomImgs = topRated?.map((r: any) => r);
+  const changeImage = () => {
+    const randomNumber = Math.floor(Math.random() * getRandomImgs?.length);
+    setImageIndex(randomNumber);
+  };
   return props.render({
     currentUser,
     movies,
     genre,
     newArrivals,
     cast,
+    imageIndex,
+    getRandomImgs,
+    query,
+    onQueryChange,
   });
 };
 

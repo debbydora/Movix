@@ -52,7 +52,6 @@ export const fetchFeaturedMovies = () => {
     dispatch(fetchFeatureMovies());
     axios
       .get(
-        // "https://api.themoviedb.org/3/movie/popular?api_key=19c570566ad687496fa002fda7fa2934"
         "https://api.themoviedb.org/3/movie/latest?api_key=19c570566ad687496fa002fda7fa2934 "
       )
       .then((response) => {

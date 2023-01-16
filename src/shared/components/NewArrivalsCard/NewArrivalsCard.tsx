@@ -5,12 +5,21 @@ import "./Arrivals.scss";
 
 const NewArrivalsCard = (props: MovieCardProps) => {
   let moviesArray = props.movies;
+  let queryString = props.query;
   const [moviesToDisplay, setMoviesToDisplay] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(4);
   useEffect(() => {
-    setMoviesToDisplay(handleScrollBar(moviesArray, startIndex, endIndex));
-  }, [startIndex, endIndex, moviesArray]);
+    if (queryString !== "") {
+      let data: any = moviesArray.filter((movie: any) => {
+        return movie.title.toLowerCase().includes(props.query.toLowerCase());
+      });
+      setMoviesToDisplay(handleScrollBar(data, startIndex, endIndex));
+    } else {
+      setMoviesToDisplay(handleScrollBar(moviesArray, startIndex, endIndex));
+    }
+    // eslint-disable-next-line
+  }, [startIndex, endIndex, moviesArray, queryString]);
 
   const handlePrev = (e: any) => {
     e.preventDefault();
@@ -84,7 +93,9 @@ const NewArrivalsCard = (props: MovieCardProps) => {
                   alt="rotten tomatoes"
                   className="tomato_img"
                 />
-                <p className="tomatoes">{(m.vote_average / 10) * 100}%</p>
+                <p className="tomatoes">
+                  {((m.vote_average / 10) * 100).toFixed(0)}%
+                </p>
               </div>
               <p className="genre">{displayGenre(m.genre_ids)}</p>
             </div>

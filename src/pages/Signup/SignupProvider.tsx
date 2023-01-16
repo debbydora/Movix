@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Dispatch } from "redux";
 import { registerationOfUser } from "../../store/actions/userActions";
 
@@ -12,13 +13,15 @@ const SignupProvider = (props: SignupProviderProps) => {
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
 
-  const { currentUser, loading } = useSelector((state: any) => state.user);
+  const { currentUser, loading, error } = useSelector(
+    (state: any) => state.user
+  );
   const dispatch: Dispatch<any> = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (currentUser) {
-      navigate("/");
+      navigate("/home");
     }
   }, [currentUser, navigate]);
 
@@ -37,9 +40,11 @@ const SignupProvider = (props: SignupProviderProps) => {
   const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (email === "" || password === "" || fullName === "") {
-      return;
+      return toast.error("please enter your details");
     }
     dispatch(registerationOfUser({ email, password, fullName }));
+    toast.error(error);
+    console.log(error);
     setEmail("");
     setFullName("");
     setPassword("");

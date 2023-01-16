@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Dispatch } from "redux";
 import { loginUserInitiation } from "../../store/actions/userActions";
+
 export type LoginProviderProps = {
   render: any;
 };
@@ -10,14 +12,14 @@ export type LoginProviderProps = {
 const LoginProvider = (props: LoginProviderProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const { currentUser } = useSelector((state: any) => state.user);
+  const { currentUser, error } = useSelector((state: any) => state.user);
   const dispatch: Dispatch<any> = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (currentUser) {
-      navigate("/");
+      // navigate("/home");
+      console.log("trig");
     }
   }, [currentUser, navigate]);
 
@@ -32,12 +34,13 @@ const LoginProvider = (props: LoginProviderProps) => {
   };
   const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    console.log(email, password);
-
     if (email === "" || password === "") {
-      return;
+      return toast.error("please enter your credentials");
     }
     dispatch(loginUserInitiation({ email, password }));
+    if (error) {
+      toast.error(error);
+    }
     setEmail("");
     setPassword("");
   };
